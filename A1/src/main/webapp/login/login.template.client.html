@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="./login.style.client.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <h1>Sign In</h1>
+      </div>
+      <div class="input-fields">
+        <label>Username</label>
+        <input type="text" class="form-control" />
+      </div>
+      <div class="input-fields">
+        <label>Password</label>
+        <input class="form-control" />
+      </div>
+      <div class="sign-in">
+        <button class="btn btn-primary btn-block" onclick="handleSignIn()">
+          Sign in
+        </button>
+      </div>
+      <a>Forgot Password</a>
+      <div class="sign-up">
+        <a href="../register/register.template.client.html">Sign Up</a>
+      </div>
+      <div>
+        <a href="../index.html"> Cancel </a>
+      </div>
+    </div>
+
+    <script>
+      function handleSignIn() {
+        location.replace("../profile/profile.html");
+      }
+    </script>
+  </body>
+</html>
