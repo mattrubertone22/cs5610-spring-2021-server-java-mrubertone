@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="./profile.style.client.css" rel="stylesheet" />
+    <meta charset="UTF-8" />
+    <title>Profile</title>
+  </head>
+
+  <script>
+    // reference: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_toggle_hide_show
+    function displayAlert() {
+      var alert = document.getElementById("success-alert");
+      if (alert.style.display === "none") {
+        alert.style.display = "block";
+      } else {
+        alert.style.display = "none";
+      }
+    }
+  </script>
+
+  <body>
+    <div class="container">
+      <h1>Profile</h1>
+      <div
+        id="success-alert"
+        display="none"
+        class="alert alerts alert-success"
+        role="alert"
+      >
+        Profile successfully saved
+      </div>
+
+      <div class="mb-3 row">
+        <label for="username" class="col-sm-2 col-form-label"> Username </label>
+        <div class="col-sm-10">
+          <input
+            type="text"
+            readonly
+            class="form-control-plaintext"
+            id="username"
+            value="Created Username"
+          />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="inputPassword" class="col-sm-2 col-form-label">
+          Password
+        </label>
+        <div class="col-sm-10">
+          <input
+            type="password"
+            class="form-control-plaintext"
+            id="inputPassword"
+            readonly
+            value="Created Password"
+          />
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label for="phone" class="col-sm-2 col-form-label"> Phone </label>
+        <div class="col-sm-10">
+          <input
+            type="tel"
+            class="form-control"
+            id="phone"
+            placeholder="Enter your phone number"
+          />
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label for="email" class="col-sm-2 col-form-label"> Email </label>
+        <div class="col-sm-10">
+          <input
+            type="email"
+            class="form-control"
+            title="email"
+            placeholder="Please enter a valid email address"
+            id="email"
+          />
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label for="role" class="col-sm-2 col-form-label"> Role </label>
+        <div class="col-sm-10">
+          <select id="role" class="form-control" title="Select your role">
+            <option>Faculty</option>
+            <option>Student</option>
+            <option>Staff</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label for="dob" class="col-sm-2 col-form-label"> DOB </label>
+        <div class="col-sm-10">
+          <input
+            type="date"
+            class="form-control"
+            title="Please enter your DOB"
+            value="2021-01-25"
+            id="dob"
+          />
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <div class="col-sm-2">&nbsp;</div>
+        <div class="col-sm-10">
+          <a class="btn btn-success btn-block" onClick="displayAlert()">
+            Update
+          </a>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <div class="col-sm-2">&nbsp;</div>
+        <div class="col-sm-10">
+          <a class="btn btn-danger btn-block" href="../index.html"> Logout </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
