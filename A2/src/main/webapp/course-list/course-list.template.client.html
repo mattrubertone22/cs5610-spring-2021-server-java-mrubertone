@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Course-List</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link href="./course-list.style.client.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-1">
+          <button type="submit" class="btn btn-default">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+        <div class="col-sm-3 d-lg-block">
+          <h1 id="the-course-list-heading">Course Manager</h1>
+        </div>
+        <div class="col-sm-7 form-control-lg">
+          <input
+            id="create-course"
+            size="75"
+            type="text"
+            title="create-course"
+            placeholder="New Course"
+          />
+        </div>
+        <div class="col-sm-1 add-button">
+          <i class="fas fa-plus-circle"></i>
+        </div>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th title="course-title">Title</th>
+            <th title="owned-by" class="d-none d-md-table-cell">Owned by</th>
+            <th title="last-modified" class="d-none d-lg-table-cell">
+              Last modified
+            </th>
+            <th title="sorting" class="d-none d-lg-table-cell">
+              <i class="fas fa-th"></i>
+              <i class="fas fa-sort-alpha-down"></i>
+            </th>
+          </tr>
+          <tr>
+            <td class="text-primary">
+              <i class="fas fa-file-alt"></i>
+              Unselected Course
+            </td>
+            <td>me</td>
+            <td>1/1/2020</td>
+          </tr>
+          <tr class="bg-primary">
+            <td class="text-white">
+              <i class="fas fa-file-alt"></i>
+              Selected Course
+            </td>
+            <td>me</td>
+            <td>1/1/2020</td>
+            <td>
+              <i class="fas fa-pencil-alt text-white"></i>
+              <i class="fas fa-trash-alt text-white"></i>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-primary">
+              <i class="fas fa-file-alt"></i>
+              Unselected Course
+            </td>
+            <td>me</td>
+            <td>1/1/2020</td>
+          </tr>
+          <tr class="bg-primary">
+            <td class="text-white">
+              <i class="fas fa-file-alt"></i>
+              Editing Course
+            </td>
+            <td>me</td>
+            <td>1/1/2020</td>
+            <td>
+              <i class="fas fa-check text-white"></i>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-primary">
+              <i class="fas fa-file-alt"></i>
+              Unselected Course
+            </td>
+            <td>me</td>
+            <td>1/1/2020</td>
+            <td></td>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </body>
+</html>
