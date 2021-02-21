@@ -3,7 +3,7 @@ var $firstNameFld, $lastNameFld, $roleFld;
 var $removeBtn, $updateBtn, $createBtn;
 var $userRowTemplate;
 var theTableBody;
-// var userService = new AdminUserServiceClient();
+var userService = new AdminUserServiceClient();
 
 var m_users = [];
 
@@ -20,8 +20,8 @@ function renderUsers(users) {
           <td class="wbdv-role">${user.role}</td>
           <td class="wbdv-actions">
             <span class="pull-right">
-              <i class="fa-2x fa fa-times wbdv-remove"></i>
-              <i class="fa-2x fa fa-pencil wbdv-edit"></i>
+              <i class="fa-2x fa fa-times wbdv-remove" id="${i}"></i>
+              <i class="fa-2x fa fa-pencil wbdv-edit" id="${i}"></i>
             </span>
           </td>
         </tr>`);
@@ -34,7 +34,8 @@ var selectedUser = null;
 
 function selectUser(event) {
   var select = jQuery(event.target);
-  var theId = select.attr("id");
+  var theIndex = select.attr("id");
+  var theId = m_users[theIndex]._id;
   selectedUser = m_users.find((user) => user._id === theId);
   $usernameFld.val(selectedUser.username);
   $passwordFld.val(selectedUser.password);
@@ -44,33 +45,36 @@ function selectUser(event) {
 }
 
 function updateUser() {
-  console.log("tryna Update");
-  // var select = jQuery(event.target);
-  // var theId = select.attr("id");
-  // selectedUser = m_users.find((user) => user._id === theId);
   selectedUser.username = $usernameFld.val();
   selectedUser.password = $passwordFld.val();
   selectedUser.firstName = $firstNameFld.val();
   selectedUser.lastName = $lastNameFld.val();
   selectedUser.role = $roleFld.val();
-
-  var index = m_users.findIndex((user) => user._id === selectedUser._id);
-
-  m_users[index] = selectedUser;
-  renderUsers(m_users);
+  userService.updateUser(selectedUser._id, selectedUser).then((status) => {
+    var index = m_users.findIndex((user) => {
+      user._id === selectedUser._id
+    });
+    m_users[index] = selectedUser;
+    renderUsers(m_users);
+  })
 }
 
 function createUser(user) {
-  m_users.push(user);
-  renderUsers(m_users);
+  userService.createUser(user).then((data) => {
+      m_users.push(data);
+      renderUsers(m_users);
+    })
 }
 
 function deleteUser(event) {
-  $removeBtn = jQuery(event.target);
-  var theIndex = $removeBtn.attr("id");
-  //  var theId = users[theIndex]._id;
-  m_users.splice(theIndex, 1);
-  renderUsers(m_users);
+  var target = jQuery(event.currentTarget);
+  var theIndex = target.attr("id");
+  var theId = m_users[theIndex]._id;
+  userService.deleteUser(theId).then((status) => {
+      m_users.splice(theIndex, 1);
+      renderUsers(m_users);
+    })
+
 }
 
 function main() {
@@ -92,8 +96,9 @@ function main() {
       role: $roleFld.val(),
     });
   });
+  userService.findAllUsers().then((data) => {
+      m_users = data;
+      renderUsers(m_users);
+    })
 }
 jQuery(main);
-
-// function findAllUsers() { … }
-// function findUserById() { … }
